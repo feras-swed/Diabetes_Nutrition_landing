@@ -5,7 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initAccordions();
-  initDownloadModal();
 });
 
 /* --------------------------------------------------------------------------
@@ -86,60 +85,4 @@ function copyToClipboard(text, successMessage) {
   });
 }
 
-/* --------------------------------------------------------------------------
-   5. Coming Soon Download Modal (بطاقة إشعار قريباً بإذن الله)
-   -------------------------------------------------------------------------- */
-function initDownloadModal() {
-  // Ensure modal markup exists
-  let modal = document.getElementById('download-soon-modal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'download-soon-modal';
-    modal.className = 'app-modal-backdrop';
-    modal.innerHTML = `
-      <div class="app-modal-card">
-        <div class="modal-icon-glow">🚀</div>
-        <div class="modal-status-badge">النسخة الرسمية قيد التجهيز للنشر</div>
-        <h3 class="modal-main-title">التطبيق غير متوفر للتحميل حالياً</h3>
-        <p class="modal-desc-text">
-          يجري حالياً وضع اللمسات السريرية والتقنية الأخيرة واعتماد النسخة النهائية لتطبيق <strong>GLYTIVA</strong> على المتاجر وتوفير حزمة التثبيت المباشر (APK).<br><br>
-          سيتم إتاحة رابط التحميل قريباً جداً بإذن الله!
-        </p>
-        <button type="button" class="modal-btn-close" id="modal-close-btn">حسناً، فهمت ذلك</button>
-      </div>
-    `;
-    document.body.appendChild(modal);
 
-    const closeBtn = modal.querySelector('#modal-close-btn');
-    closeBtn.addEventListener('click', closeDownloadModal);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeDownloadModal();
-      }
-    });
-  }
-
-  // Attach to all download buttons
-  const downloadTriggers = document.querySelectorAll('.btn-download-nav, .btn-download-trigger, a[href="#download"], a[href*="github.com"]');
-  downloadTriggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openDownloadModal();
-    });
-  });
-}
-
-function openDownloadModal() {
-  const modal = document.getElementById('download-soon-modal');
-  if (modal) {
-    modal.classList.add('show');
-  }
-}
-
-function closeDownloadModal() {
-  const modal = document.getElementById('download-soon-modal');
-  if (modal) {
-    modal.classList.remove('show');
-  }
-}
