@@ -923,108 +923,241 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Team Honor Board & Profile Spotlight (About & Contact)
+   Executive Developer Profile Spotlight (Luxury Medical-SaaS Aesthetic)
    -------------------------------------------------------------------------- */
 .developer-profile-hero {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1px solid #E2E8F0;
   border-radius: var(--radius-xl);
-  padding: 28px;
-  box-shadow: var(--shadow-md);
+  padding: 32px 28px;
+  box-shadow: 0 20px 35px -12px rgba(10, 37, 64, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
   margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.developer-profile-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #059669 0%, #0284C7 50%, #6366F1 100%);
 }
 
 .dev-hero-header {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 640px) {
   .dev-hero-header {
     flex-direction: row;
     text-align: right;
+    align-items: flex-start;
   }
 }
 
 .dev-avatar-box {
-  width: 84px;
-  height: 84px;
+  position: relative;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #059669 0%, #0284C7 100%);
+  background: linear-gradient(135deg, #0A2540 0%, #0F172A 100%);
   padding: 3px;
   flex-shrink: 0;
+  box-shadow: 0 10px 25px -5px rgba(10, 37, 64, 0.25), 0 0 0 1px rgba(5, 150, 105, 0.3);
 }
 
 .dev-avatar-inner {
   width: 100%;
   height: 100%;
-  background: #FFFFFF;
+  background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.2rem;
+  color: #FFFFFF;
+}
+
+.dev-status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background: #10B981;
+  border: 2.5px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.dev-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
 }
 
 .dev-title-name {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 900;
   color: var(--primary-navy);
+  line-height: 1.25;
+  margin-bottom: 4px;
 }
 
-.dev-role-badge {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: var(--accent-emerald);
+.dev-english-title {
+  font-family: var(--font-en);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0284C7;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
 }
 
-.dev-uni {
+.dev-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .dev-badges-row {
+    justify-content: flex-start;
+  }
+}
+
+.dev-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.78rem;
-  color: var(--text-muted);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  color: var(--primary-navy);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.dev-meta-badge.emerald {
+  background: #F0FDF4;
+  border-color: #BBF7D0;
+  color: #166534;
+}
+
+.dev-meta-badge.sky {
+  background: #F0F9FF;
+  border-color: #BAE6FD;
+  color: #0369A1;
+}
+
+.dev-meta-badge.navy {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0F172A;
+}
+
+.dev-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+  padding: 14px 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.skill-tag {
+  font-family: var(--font-en);
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: #F1F5F9;
+  color: #334155;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #E2E8F0;
 }
 
 .dev-action-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.btn-contact-light {
+.dev-btn-action {
   flex: 1;
-  min-width: 160px;
+  min-width: 170px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 18px;
+  gap: 10px;
+  padding: 13px 20px;
   border-radius: var(--radius-md);
   text-decoration: none;
+  font-family: var(--font-ar);
   font-weight: 800;
-  font-size: 0.88rem;
-  transition: all 0.2s ease;
+  font-size: 0.92rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.btn-contact-light.whatsapp {
-  background: #25D366;
-  color: #03200C;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
-}
-
-.btn-contact-light.linkedin {
-  background: #0A66C2;
+.dev-btn-action.btn-wa {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(10, 102, 194, 0.25);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.btn-contact-light.email {
-  background: var(--bg-subtle);
+.dev-btn-action.btn-wa:hover {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35);
+}
+
+.dev-btn-action.btn-li {
+  background: linear-gradient(135deg, #0077B5 0%, #0A66C2 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(10, 102, 194, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dev-btn-action.btn-li:hover {
+  background: linear-gradient(135deg, #005E93 0%, #0077B5 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 102, 194, 0.35);
+}
+
+.dev-btn-action.btn-mail {
+  background: #FFFFFF;
   color: var(--primary-navy);
-  border: 1px solid var(--border-medium);
+  border: 1px solid #CBD5E1;
+  cursor: pointer;
+}
+
+.dev-btn-action.btn-mail:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 /* 12 Dietitians Grid (Light Theme) */
