@@ -5,7 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initAccordions();
-  initContactForm();
   initDownloadModal();
 });
 
@@ -88,46 +87,7 @@ function copyToClipboard(text, successMessage) {
 }
 
 /* --------------------------------------------------------------------------
-   5. Direct WhatsApp Form Handler
-   -------------------------------------------------------------------------- */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nameInput = document.getElementById('sender-name');
-    const phoneInput = document.getElementById('sender-phone');
-    const msgInput = document.getElementById('sender-message');
-
-    const name = nameInput ? nameInput.value.trim() : '';
-    const phone = phoneInput ? phoneInput.value.trim() : 'غير محدد';
-    const message = msgInput ? msgInput.value.trim() : '';
-
-    if (!message) {
-      showToast('يرجى كتابة نص الرسالة أو الاستشارة أولاً.');
-      return;
-    }
-
-    const formattedMessage = 
-      `*استشارة / رسالة جديدة عبر موقع GLYTIVA*\n` +
-      `👤 *الاسم:* ${name || 'زائر الموقع'}\n` +
-      `📞 *وسيلة التواصل:* ${phone}\n` +
-      `📝 *الرسالة:*\n${message}`;
-
-    const waUrl = `https://wa.me/967737972946?text=${encodeURIComponent(formattedMessage)}`;
-
-    showToast('شكراً لتواصلك! جاري تحويلك إلى محادثة الواتساب المباشرة...');
-    
-    setTimeout(() => {
-      window.open(waUrl, '_blank');
-      form.reset();
-    }, 600);
-  });
-}
-
-/* --------------------------------------------------------------------------
-   6. Coming Soon Download Modal (بطاقة إشعار قريباً بإذن الله)
+   5. Coming Soon Download Modal (بطاقة إشعار قريباً بإذن الله)
    -------------------------------------------------------------------------- */
 function initDownloadModal() {
   // Ensure modal markup exists
