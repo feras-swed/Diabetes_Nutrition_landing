@@ -156,7 +156,10 @@ body {
   font-weight: 900;
   line-height: 1.1;
   display: flex;
+  flex-direction: row;
+  direction: ltr; /* English brand name must always flow Left-To-Right */
   align-items: center;
+  gap: 5px;
   white-space: nowrap;
 }
 
@@ -166,11 +169,13 @@ body {
   }
 }
 
-.brand-name .gly {
+.brand-name .gly,
+.brand-name .gluco {
   color: var(--primary-navy);
 }
 
-.brand-name .tiva {
+.brand-name .tiva,
+.brand-name .balance {
   color: var(--accent-emerald);
 }
 

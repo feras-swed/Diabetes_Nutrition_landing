@@ -1,5 +1,5 @@
 /**
- * GLYTIVA | Interactive Clinical Tools Suite
+ * GLUCO BALANCE | Interactive Clinical Tools Suite
  * Glycemic Load Calculator, Sydney GGE Spoons, Hypo 15-15 Timer, and TIR Simulator
  */
 
@@ -163,7 +163,7 @@ function initGlycemicCalculator() {
       cardGL.classList.add('red');
     }
 
-    outPairing.textContent = `💡 نصيحة سريرية: ${food.pairing}`;
+    outPairing.textContent = `💡 نصيحة تغذوية: ${food.pairing}`;
   }
 
   foodSelect.addEventListener('change', recalculate);
