@@ -70,6 +70,8 @@ html {
   color: var(--text-main);
   scroll-behavior: smooth;
   font-size: 15px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -77,6 +79,7 @@ body {
   background-color: var(--bg-body);
   color: var(--text-main);
   overflow-x: hidden;
+  max-width: 100%;
   line-height: 1.6;
 }
 
@@ -1165,25 +1168,449 @@ body {
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
-/* 12 Dietitians Grid (Light Theme) */
+/* 12 Dietitians Grid & Luxury Profile Cards */
+.sort-tabs-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.sort-btn {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  color: var(--primary-navy);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.sort-btn.active {
+  background: var(--primary-navy) !important;
+  border-color: var(--primary-navy) !important;
+  color: #FFFFFF !important;
+}
+
 .dietitians-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 680px) {
   .dietitians-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1040px) {
   .dietitians-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+.dietitian-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  text-align: right;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.dietitian-card:hover {
+  border-color: #6EE7B7;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.09);
+  transform: translateY(-2px);
+}
+
+.dietitian-card .d-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dietitian-card .d-avatar-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.dietitian-card .d-meta {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dietitian-card .d-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.dietitian-card .d-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent-emerald);
+  background: var(--bg-emerald-soft);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.dietitian-card .d-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94A3B8;
+  font-family: monospace;
+}
+
+.dietitian-card .d-name {
+  font-weight: 900;
+  font-size: 0.98rem;
+  color: var(--primary-navy);
+  margin: 0;
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.dietitian-card .d-en-name {
+  font-size: 0.76rem;
+  color: #64748B;
+  font-weight: 600;
+  margin-top: 2px;
+  line-height: 1.25;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.dietitian-card .d-bio {
+  font-size: 0.83rem;
+  color: #475569;
+  line-height: 1.65;
+  margin: 12px 0 14px;
+  flex-grow: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.dietitian-card .d-card-footer {
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dietitian-card .d-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1D4ED8;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.dietitian-card .d-link-btn:hover {
+  background: #1D4ED8;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
+}
+
+.dietitian-card .d-link-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.dietitian-card .d-link-btn:hover .d-link-arrow {
+  transform: translate(-2px, -2px);
+}
+
+.dietitian-card .d-inst-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748B;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Specific Mobile Optimization for <= 480px and Small Screens (320px) */
+@media (max-width: 480px) {
+  .section-wrapper {
+    padding: 24px 0;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .light-feature-card {
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .sort-tabs-wrap {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .sort-btn {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 0.80rem;
+  }
+
+  .dietitians-grid {
+    gap: 12px;
+  }
+
+  .dietitian-card {
+    padding: 14px 12px 12px;
+    border-radius: 14px;
+  }
+
+  .dietitian-card .d-card-top {
+    gap: 10px;
+  }
+
+  .dietitian-card .d-avatar-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .dietitian-card .d-name {
+    font-size: 0.92rem;
+  }
+
+  .dietitian-card .d-en-name {
+    font-size: 0.72rem;
+  }
+
+  .dietitian-card .d-bio {
+    font-size: 0.80rem;
+    line-height: 1.55;
+    margin: 10px 0 12px;
+  }
+
+  .dietitian-card .d-card-footer {
+    padding-top: 10px;
+  }
+
+  .dietitian-card .d-link-btn {
+    padding: 7px 10px;
+    font-size: 0.75rem;
+  }
+
+  .dietitian-card .d-inst-badge {
+    padding: 5px 8px;
+    font-size: 0.70rem;
+  }
+
+  /* Developer & Supervisor Hero cards on <= 480px */
+  .developer-profile-hero {
+    padding: 20px 14px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .dev-title-name {
+    font-size: 1.35rem;
+  }
+
+  .dev-english-title {
+    font-size: 0.82rem;
+  }
+
+  .dev-badges-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .dev-meta-badge {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.74rem;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .dev-skills-wrap {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 0.68rem;
+    padding: 3px 6px;
+  }
+
+  .dev-action-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .dev-btn-action {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 340px) {
+  .container {
+    padding: 0 8px;
+  }
+
+  .light-feature-card {
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+
+  .dietitians-grid {
+    gap: 10px;
+  }
+
+  .dietitian-card {
+    padding: 10px 8px 10px;
+    border-radius: 10px;
+  }
+
+  .dietitian-card .d-card-top {
+    gap: 6px;
+  }
+
+  .dietitian-card .d-avatar-circle {
+    width: 34px;
+    height: 34px;
+    font-size: 1.05rem;
+  }
+
+  .dietitian-card .d-badge {
+    font-size: 0.60rem;
+    padding: 1px 5px;
+  }
+
+  .dietitian-card .d-num {
+    font-size: 0.65rem;
+  }
+
+  .dietitian-card .d-name {
+    font-size: 0.84rem;
+    line-height: 1.25;
+  }
+
+  .dietitian-card .d-en-name {
+    font-size: 0.66rem;
+    line-height: 1.2;
+  }
+
+  .dietitian-card .d-bio {
+    font-size: 0.74rem;
+    line-height: 1.48;
+    margin: 8px 0 8px;
+  }
+
+  .dietitian-card .d-card-footer {
+    padding-top: 8px;
+  }
+
+  .dietitian-card .d-link-btn {
+    padding: 6px 6px;
+    font-size: 0.68rem;
+    gap: 3px;
+  }
+
+  .dietitian-card .d-inst-badge {
+    padding: 4px 6px;
+    font-size: 0.64rem;
+    gap: 3px;
+  }
+
+  .developer-profile-hero {
+    padding: 16px 8px;
+  }
+
+  .dev-title-name {
+    font-size: 1.15rem;
+  }
+
+  .dev-avatar-box {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+/* Fallback Tile Support */
 .dietitian-tile {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
